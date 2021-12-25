@@ -103,7 +103,9 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
         {children}
         <ScrollRestoration />
         <Scripts />
-        {/* {process.env.NODE_ENV === "development" && <LiveReload />} */}
+
+        {/* NOTE: Uncomment this to enable live reload */}
+        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
   );
@@ -119,7 +121,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Logo/Header */}
           <a href="/" className="flex items-center py-4 px-2">
-            <span className="font-semibold text-gray-500 text-lg">Snippy</span>
+            <span className="font-semibold font-mono text-gray-500 text-2xl">Snippy</span>
           </a>
 
           {/* Main nav */}
@@ -127,7 +129,6 @@ function Layout({ children }: { children: React.ReactNode }) {
             <a href="/" className={`nav-item ${location.pathname == "/" ? "active" : ""}`}>Home</a>
             <a href="/popular" className={`nav-item ${location.pathname == "/popular" ? "active" : ""}`}>Popular</a>
             <a href="/latest" className={`nav-item ${location.pathname == "/latest" ? "active" : ""}`}>Latest</a>
-            <a href="/my-snippets" className={`nav-item ${location.pathname == "/my-snippets" ? "active" : ""}`}>My Snippets</a>
           </div>
         </div>
 

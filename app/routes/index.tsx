@@ -1,4 +1,4 @@
-import type { MetaFunction, LoaderFunction } from "remix";
+import type { MetaFunction } from "remix";
 import Typewriter from 'typewriter-effect';
 import hljs from 'highlight.js';
 
