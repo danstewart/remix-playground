@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sans-Serif */
+@font-face {
+  font-family: 'Assistant';
+  src: local('Assistant'), url(/fonts/Assistant-VariableFont_wght.ttf) format('ttf');
+}
+
+/* Serif */
+@font-face {
+  font-family: 'FiraCode';
+  src: local('FiraCode'), url(/fonts/Fire_Code/FiraCode-VariableFont_wght.ttf) format('ttf');
+}
+
+/* Mono */
+@font-face {
+  font-family: 'Bitter';
+  src: local('Bitter'), url(/fonts/Bitter/Bitter-VariableFont_wght.ttf) format('ttf');
+}
+
+/* Vars */
+:root {
+    --primary-color: theme('colors.blue.400');
+    --primary-color-hover: theme('colors.blue.500');
+    --secondary-color: theme('colors.gray.400');
+    --secondary-color-hover: theme('colors.gray.500');
+    --main-background-color: #fafafa;
+}
+
+body {
+    background-color: var(--main-background-color);
+}
+
+.btn {
+    @apply
+        py-2
+        px-2
+        font-medium
+        rounded
+        transition
+        duration-300
+    ;
+}
+
+.btn-primary {
+    @apply
+        bg-primary-color
+        text-white
+        hover:bg-primary-color-hover
+    ;
+}
+
+.btn-secondary {
+    @apply
+        bg-secondary-color
+        text-white
+        hover:bg-secondary-color-hover
+    ;
+}
+
+.title {
+    @apply
+        text-2xl
+        font-semibold
+    ;
+}
+
+.nav-item {
+    @apply
+        py-4
+        px-2
+        text-secondary-color
+        hover:text-secondary-color-hover
+        font-semibold
+        transition
+        duration-300
+    ;
+}
+
+.nav-item.active {
+    @apply
+        text-primary-color
+        border-primary-color
+        hover:text-primary-color-hover
+        hover:border-primary-color-hover
+        border-b-4
+    ;
+}
+
