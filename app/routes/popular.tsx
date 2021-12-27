@@ -1,57 +1,9 @@
 import { MetaFunction, LoaderFunction, useLoaderData } from "remix";
 import hljs from "highlight.js";
-
-// TODO: Make snippets controller and models to load this data
-type Snippet = {
-    title: string;
-    author: string;
-    description: string;
-    url: string;
-    rank: number;
-    language: string;
-    code: string[];
-}
+import { Snippet, getSnippets } from "../controllers/snippets";
 
 export const loader: LoaderFunction = () => {
-    const snippets: Snippet[] = [{
-        title: "hello-world.py",
-        author: "Dan Stewart",
-        description: "Prints 'Hello World' to the console",
-        url: "https://remix.run/snippets/hello-world",
-        rank: 1,
-        language: "python",
-        code: [
-            "#!/usr/bin/env python",
-            "",
-            "print('Hello World')",
-        ]
-    }, {
-        title: "hello-world.sh",
-        author: "Dan Stewart",
-        description: "Prints 'Hello World' to the console",
-        url: "https://remix.run/snippets/hello-world",
-        rank: 2,
-        language: "bash",
-        code: [
-            "#!/usr/bin/env bash",
-            "",
-            "echo 'Hello World'",
-        ]
-    }, {
-        title: "hello-world.rb",
-        author: "Dan Stewart",
-        description: "Prints 'Hello World' to the console",
-        url: "https://remix.run/snippets/hello-world",
-        rank: 3,
-        language: "ruby",
-        code: [
-            "#!/usr/bin/env ruby",
-            "",
-            "puts 'Hello World'",
-        ]
-    }];
-
-    return snippets;
+    return getSnippets({ limit: 5, sortBy: "rank" });
 };
 
 export let meta: MetaFunction = () => {
