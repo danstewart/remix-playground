@@ -62,8 +62,7 @@ export function CatchBoundary() {
     case 401:
       message = (
         <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to.
+          Oops! Looks like you tried to visit a page that you do not have access to.
         </p>
       );
       break;
@@ -114,6 +113,24 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
 function Layout({ children }: { children: React.ReactNode }) {
   let location = useLocation();
 
+  const NavButtons = ({ loggedIn }: { loggedIn: boolean }) => {
+    if (!loggedIn) {
+      return (
+        <div className="hidden md:flex items-center space-x-3">
+          <a href="" className="btn btn-secondary">Sign Up</a>
+          <a href="" className="btn btn-primary">Log In</a>
+        </div >
+      )
+    } else {
+      return (
+        <div className="hidden md:flex items-center space-x-3">
+          <a href="/profile" className="btn btn-secondary">Profile</a>
+          <a href="/snippets/new" className="btn btn-primary">Create</a>
+        </div>
+      )
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex justify-between mb-10">
@@ -121,25 +138,22 @@ function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Logo/Header */}
           <a href="/" className="flex items-center py-4 px-2">
-            <span className="font-semibold font-mono text-gray-500 text-2xl">Snippy</span>
+            <span className="font-semibold font-mono text-primary-color text-2xl">Snippy</span>
           </a>
 
           {/* Main nav */}
           <div className="hidden md:flex items-center space-x-1">
-            <a href="/" className={`nav-item ${location.pathname == "/" ? "active" : ""}`}>Home</a>
             <a href="/popular" className={`nav-item ${location.pathname == "/popular" ? "active" : ""}`}>Popular</a>
             <a href="/latest" className={`nav-item ${location.pathname == "/latest" ? "active" : ""}`}>Latest</a>
           </div>
         </div>
 
         {/* Log in/Sign up */}
-        <div className="hidden md:flex items-center space-x-3">
-          <a href="" className="btn btn-secondary">Sign Up</a>
-          <a href="" className="btn btn-primary">Log In</a>
-        </div>
+        {/* TODO: Handle auth */}
+        <NavButtons loggedIn={true} />
       </div>
 
-      <Outlet />
+      {children}
     </div >
   )
 }

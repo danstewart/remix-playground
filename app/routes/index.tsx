@@ -4,8 +4,8 @@ import hljs from 'highlight.js';
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Snippy | Popular",
-    description: "Snippy | Popular Snippets",
+    title: "Snippy",
+    description: "Homepage | Snippy",
   };
 };
 

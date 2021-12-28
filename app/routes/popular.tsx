@@ -1,6 +1,6 @@
 import { MetaFunction, LoaderFunction, useLoaderData } from "remix";
 import hljs from "highlight.js";
-import { Snippet, getSnippets } from "../controllers/snippets";
+import { Snippet, getSnippets } from "~/controllers/snippets";
 
 export const loader: LoaderFunction = () => {
     return getSnippets({ limit: 5, sortBy: "rank" });
@@ -8,8 +8,8 @@ export const loader: LoaderFunction = () => {
 
 export let meta: MetaFunction = () => {
     return {
-        title: "Snippy | Popular",
-        description: "Snippy | Popular Snippets",
+        title: "Popular | Snippy",
+        description: "Popular Snippets | Snippy",
     };
 };
 
