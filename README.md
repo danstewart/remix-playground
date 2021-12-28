@@ -1,7 +1,8 @@
-## Remix Playground
+## Snippy
 
-Just playing around with [remix.run](https://remix.run).  
+Share and discover code snippets in any language!
 
+---
 
 ### Run
 
